@@ -26,6 +26,26 @@ class Deck extends Component {
     console.log(deck.data);
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   let playerTotal = this.state.playerHand.map((card) => {
+  //     return this.calculate(card.value);
+  //   });
+  //   if (playerCards.length > 1) {
+  //     playerTotal.reduce((prev, curr) => {
+  //       let aces = 0;
+  //       if (curr === 11) {
+  //         aces++;
+  //       }
+  //       let total = prev + curr;
+  //       if (total > 21 && aces > 0) {
+  //         total = total - 10;
+  //         aces--;
+  //       }
+  //       return total;
+  //     }
+  //   }
+  // }
+
   async getCard() {
     let id = this.state.deck.deck_id;
     try {
@@ -61,12 +81,6 @@ class Deck extends Component {
     } catch (err) {
       alert(err);
     }
-  }
-
-  startGame() {
-    this.setState({
-      gameState: "play",
-    });
   }
 
   calculate(value) {
